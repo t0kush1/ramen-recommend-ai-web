@@ -332,16 +332,14 @@ export default function Home() {
           {/* 上部アクセントライン */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-rose-400 to-indigo-400" />
 
-          {/* アクションバー（任意） */}
+          {/* アクションバー*/}
           <div className="flex items-center justify-between px-6 pt-4">
             <h3 className="text-sm font-medium text-neutral-500">
               AIからの結果
             </h3>
-            {/* ここにコピー/保存などのボタンを置いても良い */}
           </div>
 
           <div className="p-6">
-            {/* ← prose クラスは外側に付ける */}
             <div
               className="prose prose-amber prose-lg max-w-6xl leading-relaxed text-left
                       prose-headings:scroll-mt-20 prose-headings:font-semibold
