@@ -43,7 +43,7 @@ type RamenType =
   | "鶏白湯";
 
 type CodeProps = React.ComponentPropsWithoutRef<"code"> & {
-  inline?: boolean; // ← ここが型に出てこない環境があるので明示
+  inline?: boolean;
 };
 
 export default function Home() {
@@ -165,20 +165,9 @@ export default function Home() {
       console.error("APIリクエストエラー:", error);
       setError("APIリクエストに失敗しました。");
     }
-
-    // 一旦ダミー応答
-    // setTimeout(() => {
-    //   setResult(
-    //     `🍥 ${selectedDistricts.join(
-    //       "・"
-    //     )} で ${minPrice}〜${maxPrice}円 の ${selectedRamenTypes.join(
-    //       "・"
-    //     )} におすすめのラーメンTOP3をAIが提案します！（ダミー表示）`
-    //   );
-    // }, 1200);
   };
 
-  // ★ 型安全な code レンダラ
+  // 型安全なcodeレンダラを使用
   const Code: React.FC<CodeProps> = ({
     inline,
     className,
@@ -201,7 +190,7 @@ export default function Home() {
     );
   };
 
-  // ★ react-markdown の期待型へキャスト（any は使わない）
+  // react-markdown の期待型へキャスト（any は使わない）
   const markdownComponents: Components = {
     code: Code as unknown as Components["code"],
   };
