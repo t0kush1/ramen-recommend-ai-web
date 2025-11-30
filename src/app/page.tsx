@@ -163,6 +163,8 @@ export default function Home() {
       setResult(data.message);
     } catch (error) {
       console.error("APIリクエストエラー:", error);
+      console.log("ペイロード:", payload);
+      console.log("API URL:", `${process.env.NEXT_PUBLIC_API_BASE_URL}/recommend`);
       setError("APIリクエストに失敗しました。");
     }
   };
