@@ -29,6 +29,11 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
+      - name: Zip artifact for deployment
+        run: |
+          zip -r app.zip . \
+            -x "*.git*" "node_modules/.cache/*"
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -61,5 +66,5 @@ jobs:
         with:
           app-name: 'app-ramen-frontend'
           slot-name: 'Production'
-          package: .
+          package: app.zip
           
